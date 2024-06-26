@@ -21,11 +21,6 @@ public class ChestShop extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DeleteListener(this), this);
     }
 
-    @Override
-    public void onDisable() {
-
-    }
-
     public void addShop(final Shop shop) {
         this.shops.add(shop);
     }

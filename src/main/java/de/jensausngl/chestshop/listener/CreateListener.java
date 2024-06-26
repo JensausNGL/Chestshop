@@ -29,9 +29,9 @@ public class CreateListener implements Listener {
     }
 
     @EventHandler
-    public void onSignChangeEvent(SignChangeEvent event) {
-        Player player = event.getPlayer();
-        String[] lines = event.getLines();
+    public void onSignChange(final SignChangeEvent event) {
+        final Player player = event.getPlayer();
+        final String[] lines = event.getLines();
 
         if (!lines[0].equalsIgnoreCase("[shop]") && !lines[0].equalsIgnoreCase("[firmenshop]")) {
             return;
@@ -39,10 +39,10 @@ public class CreateListener implements Listener {
 
 
         // ToDo: get company of player
-        Block block = event.getBlock();
+        final Block block = event.getBlock();
 
-        Sign sign = (Sign) block.getState().getData();
-        Block relativeBlock = block.getRelative(sign.getAttachedFace());
+        final Sign sign = (Sign) block.getState().getData();
+        final Block relativeBlock = block.getRelative(sign.getAttachedFace());
 
         // ToDo: get permissions of chest
         if (relativeBlock.getType() != Material.CHEST && relativeBlock.getType() != Material.TRAPPED_CHEST) {
@@ -56,7 +56,7 @@ public class CreateListener implements Listener {
             return;
         }
 
-        ShopType type = ShopType.getByName(lines[1]);
+        final ShopType type = ShopType.getByName(lines[1]);
 
         if (type == null) {
             final ComponentBuilder builder = new ComponentBuilder("")
